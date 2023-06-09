@@ -3,7 +3,9 @@ quoteBtn = document.querySelector("button"),
 quoteAuthor = document.querySelector(".author-name"),
 soundBtn = document.querySelector(".sound"),
 copyBtn = document.querySelector(".copy"),
-linkBtn = document.querySelector(".link");
+linkBtn = document.querySelector(".link"),
+toggle = document.getElementById("toggleDark"),
+body = document.querySelector(".body");
 
 function randomQuote () {
     quoteBtn.classList.add("loading");
@@ -28,8 +30,28 @@ soundBtn.addEventListener("click", () =>{
 copyBtn.addEventListener("click", () =>{
     navigator.clipboard.writeText(quoteText.innerText);
     setTimeout(function (){
-        alert("Copied Quote!");
+        alert("Quote copied!");
     },100);
 });
 
 quoteBtn.addEventListener("click", randomQuote);
+
+// Light/Dark Mode
+toggle.addEventListener("click", function(){
+    this.classList.toggle("fa-sun");
+    if(this.classList.toggle("fa-moon")) {
+        document.body.style.backgroundColor = "#65647C";
+        document.body.style.transition = "1s";
+        soundBtn.classList.add("darkMode");
+        copyBtn.classList.add("darkMode");
+        linkBtn.classList.add("darkMode");
+        quoteBtn.classList.add("darkModeBtn");
+    } else {
+        document.body.style.backgroundColor = "#F1D4E5";
+        document.body.style.transition = "1s";
+        soundBtn.classList.remove("darkMode");
+        copyBtn.classList.remove("darkMode");
+        linkBtn.classList.remove("darkMode");
+        quoteBtn.classList.remove("darkModeBtn");
+    }
+})

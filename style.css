@@ -21,12 +21,24 @@ body {
     padding: 32px;
 }
 
-.container .header {
+.head {
+    position: relative;
+}
+
+.head .header {
     font-size: 32px;
     font-weight: 600;
     text-align: center;
     padding-bottom: 20px;
 }
+
+#toggleDark {
+    position: absolute;
+    right: 0;
+    top: 20px;
+    cursor: pointer;
+}
+
 
 .container .content {
     margin: 28px 0;
@@ -125,4 +137,26 @@ body {
 .features .loading {
     opacity: 0.7;
     pointer-events: none;
+}
+
+.features ul li.darkMode {
+    background-color: white;
+    border: 1px solid #65647C;
+    color: #65647C;
+}
+
+.features ul li.darkMode:hover {
+    background-color: #65647C;
+    color: white;
+}
+
+.features button.darkModeBtn {
+    color:white;
+    background-color: #65647C;
+}
+
+.features button.darkModeBtn:hover {
+    background-color: white;
+    border: 1px solid #65647C;
+    color: #65647C;
 }
